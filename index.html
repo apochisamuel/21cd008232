@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Application Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #eef2f7;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .form-section {
+      padding: 40px;
+      margin-bottom: 40px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    h4 {
+      color: #4b77a9;
+      font-weight: bold;
+      font-size: 1.7rem;
+      margin-bottom: 25px;
+      border-bottom: 2px solid #4b77a9;
+      padding-bottom: 10px;
+    }
+
+    label {
+      font-size: 1.1rem;
+      color: #495057;
+    }
+
+    input, textarea {
+      border-radius: 10px !important;
+      padding: 12px;
+    }
+
+    .btn {
+      font-size: 1.2rem;
+      padding: 12px 24px;
+    }
+
+    .submit-btn {
+      font-size: 1.4rem;
+      background-color: #28a745;
+      color: #fff;
+      animation: pulse 1.5s infinite;
+    }
+
+    .submit-btn:hover {
+      border-color: #218838;
+      color: #218838;
+      transform: scale(1.05);
+      transition: all 0.3s;
+      background-color: #fff;
+    }
+
+    .btn-primary {
+      font-size: 0.9rem; 
+      padding: 8px 16px; 
+      margin-top: 10px; 
+      background-color: #4b77a9;
+    }
+
+    .btn-primary:hover {
+      background-color: #0069d9;
+      transform: scale(1.03);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .form-control:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    }
+
+    .remove-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+    }
+    .skill-tag {
+      display: inline-block;
+      background-color: #d1ecf1;
+      border-radius: 20px;
+      padding: 8px 12px;
+      margin: 5px;
+      position: relative;
+      color: #0c5460;
+    }
+    .skill-tag .remove-skill {
+      cursor: pointer;
+    }
+
+    .skills-container {
+      margin-top: 15px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.5); }
+      70% { box-shadow: 0 0 0 15px rgba(40, 167, 69, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
+    }
+  </style>
+</head>
+<body class="container my-5">
+    
+    <div class="row">
+        <h1 class="text-center mb-5 fw-bold">Application Form</h1>
+        <div class="col-lg-6">
+            <!-- Personal Information Section -->
+            <div class="form-section">
+              <h4>Personal Information</h4>
+              <div class="row mb-3">
+                <div>
+                  <label for="name">Full Name</label>
+                    <input type="text" class="form-control mb-3" id="name" required>
+                </div>
+                <div class="col-lg-6">
+                  <label for="gender">Gender</label><br>
+                  <select class="form-control" id="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <label for="dob">Date Of Birth</label>
+                    <input type="date" class="form-control" id="dob" required>
+                </div>
+                <div class="col-lg-6">
+                  <label for="email">Email Address</label>
+                  <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="col-lg-6 mb-3">
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" class="form-control" id="phone" required>
+                </div>
+                <div>
+                  <label for="address">Address</label>
+                  <input type="text" class="form-control" id="address" required>
+                </div>
+              </div>
+          </div>
+
+          <!-- Position Details Section -->
+          <div class="form-section">
+              <h4>Position Details</h4>
+              <div class="mb-3">
+                <label for="position" class="form-label">Position Applied For</label>
+                <input type="text" class="form-control" id="position" required>
+              </div>
+              <div class="row mb-3">
+                <div class="col-lg-6">
+                  <label for="salary" class="form-label">Expected Salary</label>
+                  <input type="number" class="form-control" id="salary" required>
+                </div>
+                <div class="col-lg-6">
+                  <label for="start-date" class="form-label">Available Start Date</label>
+                  <input type="date" class="form-control" id="start-date" required>
+                </div>
+              </div>
+          </div>
+
+          <!-- Work Experience Section -->
+          <div class="form-section">
+              <h4>Work Experience</h4>
+              <div class="row mb-3" id="experience-section">
+                  <div class="col-lg-6">
+                      <label for="company" class="form-label">Company Name</label>
+                      <input type="text" class="form-control" id="company" required>
+                  </div>
+                  <div class="col-lg-6">
+                      <label for="position-held" class="form-label">Position Held</label>
+                      <input type="text" class="form-control" id="position-held" required>
+                  </div>
+                  <div class="col-lg-6">
+                    <label for="start-date-exp" class="form-label">Start Date</label>
+                    <input type="date" class="form-control" id="start-date-exp" required>
+                  </div>
+                  <div class="col-lg-6">
+                    <label for="end-date-exp" class="form-label">End Date</label>
+                    <input type="date" class="form-control" id="end-date-exp" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="reason-leaving" class="form-label">Reason for Leaving</label>
+                    <textarea class="form-control" id="reason-leaving" rows="2"></textarea>
+                  </div>
+              </div>
+              <div class="text-end">
+                <button type="button" class="btn btn-primary" onclick="addExperience()">Add Experience</button>
+              </div>
+            
+          </div>
+      </div>
+      <div class="col-lg-6">
+          <!-- Educational Background Section -->
+          <div class="form-section">
+              <h4>Educational Background</h4>
+              <div id="education-section">
+                <div class="mb-3">
+                  <label for="degree" class="form-label">Highest Degree</label>
+                  <input type="text" class="form-control" id="degree" required>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-md-6">
+                      <label for="school" class="form-label">Institution</label>
+                      <input type="text" class="form-control" id="school" required>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="grad-year" class="form-label">Year of Graduation</label>
+                      <input type="date" class="form-control" id="grad-year" required>
+                    </div>               
+                </div>
+              </div>
+              <div class="text-end">
+                  <button type="button" class="btn btn-primary" onclick="addEducation()">Add Education</button>
+              </div>
+
+          </div>
+
+          <!-- Skills & Qualifications Section -->
+          <div class="form-section">
+            <h4>Skills & Qualifications</h4>
+            <label for="skills-input" class="form-label">Enter Your Skills</label>
+            <input type="text" class="form-control" id="skills-input" placeholder="Type a skill and press Enter">
+            <div class="skills-container" id="skills-container">
+              <!-- Skill tags will appear here -->
+            </div>
+          </div>
+
+          <!-- References Section -->
+          <div class="form-section">
+              <h4>References</h4>
+              <div class="row mb-3" id="reference-section">
+                  <div class="col-lg-6">
+                      <label for="ref-name" class="form-label">Reference Name</label>
+                      <input type="text" class="form-control" id="ref-name" required>
+                  </div>
+                  <div class="col-lg-6">
+                      <label for="ref-phone" class="form-label">Reference Phone</label>
+                      <input type="tel" class="form-control" id="ref-phone" required>
+                  </div>
+              </div>
+              <div class="text-end">
+                  <button type="button" class="btn btn-primary" onclick="addReference()">Add Reference</button>
+              </div>
+          </div>
+          <div class="form-section mt-4">
+            <h4>Upload Your CV</h4>
+            <div class="mb-3">
+                <label for="cvUpload" class="form-label">Choose your CV (PDF, DOC, DOCX)</label>
+                <input type="file" class="form-control" id="cvUpload" accept=".pdf, .doc, .docx" required>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="text-center my-3">
+        <button class="btn submit-btn" onclick="handleSubmit()">Submit Application</button>
+    </div>
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <h5 class="modal-title fw-bold" id="successModalLabel">Application Submitted Successfully</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            <div class="green-circle mb-4">
+              <svg width="100" height="100" viewBox="0 0 100 100" class="checkmark" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" stroke="none" fill="#28a745" />
+                <path d="M30 50 L45 65 L70 35" stroke="white" stroke-width="10" fill="none" />
+              </svg>
+            </div>
+            <p class="fs-5">Thank you for submitting your application! We will review your details and get back to you shortly.</p>
+          </div>
+          <div class="modal-footer border-0 justify-content-center">
+            <button type="button" class="btn btn-success px-4 py-2 fw-bold shadow-sm" data-bs-dismiss="modal" onclick="reloadPage()">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Optional CSS for styling and animation -->
+    <style>
+      .green-circle {
+        display: inline-block;
+        position: relative;
+      }
+    
+      /* Optional Animation for the Tick */
+      .checkmark path {
+        stroke-dasharray: 100;
+        stroke-dashoffset: 100;
+        animation: draw 1s ease forwards;
+      }
+    
+      @keyframes draw {
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+    </style>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script>
+      function addExperience() {
+        const experienceSection = document.getElementById('experience-section');
+        const newExperience = document.createElement('fieldset');
+        newExperience.classList.add('form-section', 'position-relative', 'mt-4');
+        newExperience.innerHTML = `
+          <button type="button" class="btn-close remove-btn" onclick="removeExperience(this)"></button>
+          <div class="row mb-3">
+            <div class="col-lg-6">
+                <label for="reference" class="form-label">Company Name</label>
+                <input type="text" class="form-control" id="reference" required>
+            </div>
+            <div class="col-lg-6">
+                <label for="ref-phone" class="form-label">Position Held</label>
+                <input type="tel" class="form-control" id="ref-phone" required>
+            </div>
+            <div class="col-lg-6">
+              <label for="start-date" class="form-label">Start Date</label>
+              <input type="date" class="form-control" id="start-date" required>
+            </div>
+            <div class="col-lg-6">
+              <label for="start-date" class="form-label">End Date</label>
+              <input type="date" class="form-control" id="start-date" required>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="experience" class="form-label">Reason for leaving</label>
+            <textarea class="form-control" id="experience" rows="2"></textarea>
+          </div>
+        `;
+        experienceSection.appendChild(newExperience);
+      }
+
+      function addEducation() {
+        const educationSection = document.getElementById('education-section');
+        const newEducation = document.createElement('fieldset');
+        newEducation.classList.add('form-section', 'position-relative', 'mt-4');
+        newEducation.innerHTML = `
+          <button type="button" class="btn-close remove-btn" onclick="removeEducation(this)"></button>
+          <div class="mb-1">
+            <label for="education" class="form-label">Additional Degree</label>
+            <input type="text" class="form-control" id="education" required>
+          </div>
+          <div class="mb-2 row">
+            <div class="col-md-6">
+              <label for="school" class="form-label">Institution</label>
+              <input type="text" class="form-control" id="school" required>
+            </div>
+            <div class="col-md-6">
+              <label for="school" class="form-label">Year of Graduation</label>
+              <input type="date" class="form-control" id="school" required>
+            </div>               
+          </div>
+        `;
+        educationSection.appendChild(newEducation);
+      }
+
+      function addReference() {
+        const referenceSection = document.getElementById('reference-section');
+        const newReference = document.createElement('fieldset');
+        newReference.classList.add('position-relative', 'mt-4');
+        newReference.innerHTML = `
+          <button type="button" class="btn-close remove-btn" onclick="removeReference(this)"></button>
+          <div class="row mb-3">
+            <div class="col-lg-6">
+                <label for="reference" class="form-label">Reference Name</label>
+                <input type="text" class="form-control" id="reference" required>
+            </div>
+            <div class="col-lg-6">
+                <label for="ref-phone" class="form-label">Reference Phone</label>
+                <input type="tel" class="form-control" id="ref-phone" required>
+            </div>
+          </div>
+        `;
+        referenceSection.appendChild(newReference);
+      }
+
+      function removeExperience(button) {
+        const experienceSection = document.getElementById('experience-section');
+        experienceSection.removeChild(button.closest('fieldset'));
+      }
+
+      function removeEducation(button) {
+        const educationSection = document.getElementById('education-section');
+        educationSection.removeChild(button.closest('fieldset'));
+      }
+
+      function removeReference(button) {
+        const referenceSection = document.getElementById('reference-section');
+        referenceSection.removeChild(button.closest('fieldset'));
+      }
+      const skillInput = document.getElementById('skills-input');
+      const skillsContainer = document.getElementById('skills-container');
+
+      skillInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          const skillValue = skillInput.value.trim();
+          if (skillValue) {
+            addSkill(skillValue);
+            skillInput.value = '';
+          }
+        }
+      });
+
+      function addSkill(skill) {
+        const skillTag = document.createElement('span');
+        skillTag.classList.add('skill-tag');
+        skillTag.innerHTML = `${skill} <span class="remove-skill">&times;</span>`;
+        skillTag.querySelector('.remove-skill').addEventListener('click', function () {
+          skillTag.remove();
+        });
+        skillsContainer.appendChild(skillTag);
+      }
+    </script>
+    <script>
+      function handleSubmit() {
+        // Show the modal
+        var myModal = new bootstrap.Modal(document.getElementById('successModal'));
+        myModal.show();
+      }
+  
+      function reloadPage() {
+        // Reload the page after the modal is closed
+        location.reload();
+      }
+    </script>
+</body>
+</html>
